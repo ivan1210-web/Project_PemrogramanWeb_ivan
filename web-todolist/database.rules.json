@@ -1,0 +1,15 @@
+{
+  "rules": {
+    "tasks": {
+      "$uid": {
+        ".read": "$uid === auth.uid",
+        ".write": "$uid === auth.uid",
+        "$taskId": {
+          ".validate": "newData.hasChildren(['name', 'completed', 'createdAt', 'userId']) && newData.child('userId').val() === auth.uid"
+        }
+      }
+    },
+    ".read": false,
+    ".write": false
+  }
+} 
